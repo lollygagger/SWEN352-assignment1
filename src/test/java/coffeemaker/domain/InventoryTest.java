@@ -475,4 +475,17 @@ public class InventoryTest {
         assertEquals((initialValue - testRecipe.getAmtChocolate()), afterValue);
     }
 
+    @Test
+    @DisplayName("toString test")
+    public void inventoryToStringTest() {
+        String expected = "Coffee: 15\n" +
+                "Milk: 15\n" +
+                "Sugar: 15\n" +
+                "Chocolate: 15\n";
+
+        String output = this.CuT.toString();
+
+        assertEquals(expected, output);
+    }
+
 }
