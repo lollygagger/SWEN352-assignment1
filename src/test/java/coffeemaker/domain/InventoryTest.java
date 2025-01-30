@@ -29,6 +29,55 @@ public class InventoryTest {
     }
 
     @Test
+    @DisplayName("Get Milk Test")
+    public void getMilkValueValidation() {
+        int value = this.CuT.getMilk();
+        assertEquals(value, 15);
+    }
+
+    @Test
+    @DisplayName("Get Sugar Test")
+    public void getSugarValueValidation() {
+        int value = this.CuT.getSugar();
+        assertEquals(value, 15);
+    }
+
+    @Test
+    @DisplayName("Get Chocolate Test")
+    public void getChocolateValueValidation() {
+        int value = this.CuT.getChocolate();
+        assertEquals(value, 15);
+    }
+
+
+
+    @Test
+    @DisplayName("Inventory Constructor Test")
+    public void constructorValidation(){
+        boolean expected = true;
+        boolean actual = true;
+
+        if (this.CuT.getCoffee() != 15){
+            actual = false;
+        }
+
+        if (this.CuT.getMilk() != 15){
+            actual = false;
+        }
+
+        if (this.CuT.getSugar() != 15){
+            actual = false;
+        }
+
+        if (this.CuT.getChocolate() != 15){
+            actual = false;
+        }
+        assertEquals(expected, actual);
+
+    }
+
+
+    @Test
     @DisplayName("Set Coffee Test")
     public void setCoffeeValueValidation() {
         this.CuT.setCoffee(35);
@@ -80,12 +129,6 @@ public class InventoryTest {
         assertTrue(thrown.getMessage().contains("Units of coffee must be a positive integer"));
     }
 
-    @Test
-    @DisplayName("Get Milk Test")
-    public void getMilkValueValidation() {
-        int value = this.CuT.getMilk();
-        assertEquals(value, 15);
-    }
 
     @Test
     @DisplayName("Set Milk Test")
@@ -139,12 +182,6 @@ public class InventoryTest {
         assertTrue(thrown.getMessage().contains("Units of milk must be a positive integer"));
     }
 
-    @Test
-    @DisplayName("Get Sugar Test")
-    public void getSugarValueValidation() {
-        int value = this.CuT.getSugar();
-        assertEquals(value, 15);
-    }
 
     @Test
     @DisplayName("Set Sugar Test")
@@ -197,13 +234,6 @@ public class InventoryTest {
                 );
 
         assertTrue(thrown.getMessage().contains("Units of sugar must be a positive integer"));
-    }
-
-    @Test
-    @DisplayName("Get Chocolate Test")
-    public void getChocolateValueValidation() {
-        int value = this.CuT.getChocolate();
-        assertEquals(value, 15);
     }
 
     @Test
