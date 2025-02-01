@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.booleanThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,32 @@ public class RecipeBookTest {
         }
 
         Recipe temp = new Recipe();
+
+        // Test
+        boolean ret = testBook.addRecipe(temp);
+
+        // Evaluate
+        assertFalse(ret);
+    }
+
+    @Test
+    public void testAddExistingRecipe() {
+        // Setup
+        Recipe temp = new Recipe();
+        temp.setName("Tea");
+        testBook.addRecipe(temp);
+
+        // Test
+        boolean ret = testBook.addRecipe(temp);
+
+        // Evaluate
+        assertFalse(ret);
+    }
+
+    @Test
+    public void testAddNull() {
+        // Setup
+        Recipe temp = null;
 
         // Test
         boolean ret = testBook.addRecipe(temp);
