@@ -182,7 +182,7 @@ public class Recipe {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((name == null) ? 0 : name.hashCode());
+    result = prime * result + ((name.equals(""))? 0 : name.hashCode());
     return result;
   }
 
@@ -198,8 +198,8 @@ public class Recipe {
       return false;
     }
     final Recipe other = (Recipe) obj;
-    if (name == null) {
-      if (other.name != null) {
+    if (name.equals("")) {
+      if (!other.name.equals("")) {
         return false;
       }
     } else if (!name.equals(other.name)) {

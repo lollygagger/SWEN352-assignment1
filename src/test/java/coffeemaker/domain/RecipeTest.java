@@ -277,6 +277,15 @@ public class RecipeTest {
     }
 
     @Test
+    @DisplayName("hashCode test equals")
+    public void recipeHashCodeEquals() {
+        recipe.setName("Burger");
+        Recipe newRecipe = new Recipe();
+        newRecipe.setName("Burger");
+        assertEquals(recipe.hashCode(), newRecipe.hashCode());
+    }
+
+    @Test
     @DisplayName("Test equals")
     public void recipeEquals() {
         Recipe newRecipe = new Recipe();
@@ -288,5 +297,46 @@ public class RecipeTest {
     public void recipeEqualsNull() {
         Recipe newRecipe = null;
         assertEquals(false, recipe.equals(newRecipe));
+    }
+
+    @Test
+    @DisplayName("Test equals name null")
+    public void recipeEqualsNameNull() {
+        recipe.setName(null);
+        Recipe newRecipe = new Recipe();
+        newRecipe.setName("Not null");
+        assertEquals(false, recipe.equals(newRecipe));
+    
+    }
+
+    @Test
+    @DisplayName("Test equals self")
+    public void recipeEqualsSelf() {
+        assertEquals(true, recipe.equals(recipe));
+    }
+
+    @Test
+    @DisplayName("Test equals different name")
+    public void recipeEqualsDifferentName() {
+        recipe.setName("A Name");
+        Recipe test = new Recipe();
+        test.setName("A Different Name");
+        assertEquals(false, recipe.equals(test));
+    }
+
+    @Test
+    @DisplayName("Test equals same name")
+    public void recipeEqualsSameName() {
+        recipe.setName("A Name");
+        Recipe test = new Recipe();
+        test.setName("A Name");
+        assertEquals(true, recipe.equals(test));
+    }
+
+    @Test
+    @DisplayName("Test equals different object")
+    public void recipeEqualsDifferentObject() {
+        Inventory test = new Inventory();
+        assertEquals(false, recipe.equals(test));
     }
 }
